@@ -16,13 +16,15 @@ function NewMemeForm({ addMeme }) {
     }
     const handleSubmit = (e) => {
         e.preventDefault();
-        dispatch({type: "INCREMENT_ID"})
+        dispatch({type: "INCREMENT_ID"});
+        console.log("MEME ID: ", count);
         addMeme({...formData, id: count});
+        setFormData(INITIAL_VALUE);
     }
   return (
     <div className="NewMemeForm">
         <form onSubmit={handleSubmit}>
-            <lable>Image Source</lable>
+            <label class="FormLabel">Image Source</label>
             <input
                 type="text"
                 name="url"
@@ -30,7 +32,7 @@ function NewMemeForm({ addMeme }) {
                 placeholder="Image file name"
                 onChange={handleChange}
             />
-            <lable>Top Text</lable>
+            <label>Top Text</label>
             <input
                 type="text"
                 name="topText"
@@ -38,7 +40,7 @@ function NewMemeForm({ addMeme }) {
                 placeholder="Text that will go on the top of the meme"
                 onChange={handleChange}
             />
-            <lable>Bottom Text</lable>
+            <label>Bottom Text</label>
             <input
                 type="text"
                 name="bottomText"
@@ -46,7 +48,7 @@ function NewMemeForm({ addMeme }) {
                 placeholder="Text that will go on the bottom of the meme"
                 onChange={handleChange}
             />
-            <button>Submit</button>
+            <button className="FormButton">Submit</button>
         </form>
     </div>
   );

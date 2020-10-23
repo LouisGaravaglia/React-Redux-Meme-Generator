@@ -4,11 +4,13 @@ import './App.css';
 function Meme({topText, bottomText, url, deleteMeme}) {
 
   return (
+    <div className="MemeContainer">
     <div className="Meme">
-    <h3>{topText}</h3>
-      <img src={url}/>
-      <h3>{bottomText}</h3>
-      <button onClick={deleteMeme}>Remove</button>
+    <h3 className="MemeTopText">{topText}</h3>
+      <img className="MemeImage" src={url}/>
+      <h3 className="MemeBottomText">{bottomText}</h3>
+      <button className="MemeButton" onClick={deleteMeme}>Remove</button>
+    </div>
     </div>
   );
 }
